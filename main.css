@@ -122,7 +122,10 @@ a, #main {
     flex-wrap: wrap;
 }
 /* Title bar "Upcoming Adventures! */
-.main-top {
+
+
+/* Info text */
+.main-info {
     /* positioning */
     flex: 100%;
     border-radius: 7px;
@@ -136,26 +139,6 @@ a, #main {
     border: 1px solid #030000;
 }
 
-/* Info text */
-.main-info {
-    /* positioning */
-    flex: 100%;
-    border-radius: 5px;
-    margin: 3px 8px 8px 8px;
-    padding: 10px;
-    height: 100%;
-    /* styling */
-    text-align: center;
-    box-shadow: 10px 10px 11px #000;
-    background-color: rgba(211, 207, 207, 0.566);
-    border: 1px solid #030000;
-}
-
-
-.success-message {
-    color: green;
-    font-weight: bold;
-}
 
 .adventure-link {
     text-decoration: none;

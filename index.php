@@ -5,8 +5,8 @@
 <body>
 
   
-    <div class="main-info2">
-    <form action="#" method="post">
+    <div class="main-info">
+        <form action="#" method="post">
 
         <label for="heading">Heading:</label>
         <input type="text" name="heading" id="heading" required><br>
@@ -21,7 +21,8 @@
         <textarea name="summary" id="summary" required></textarea><br>
 
         <input type="submit" value="Add Adventure" />
-    </form>
+
+        </form>
     </div>
 
 </body>
@@ -31,26 +32,26 @@
 
 <?php
     if (isset($_POST["heading"]) && isset($_POST["tripdate"]) && isset($_POST["duration"]) && isset($_POST["summary"])) {
-    
-    // prepare and bind the INSERT query - protects against SQL injection attacks
-    $stmt = $conn->prepare("INSERT INTO Person (heading, tripdate, duration, summary) VALUES (?, ?, ?, ?)");
-    $stmt->bind_param("ssss", $heading, $tripdate, $duration, $summary);
+        // Assuming $conn is your database connection object
+        
+        // prepare and bind the INSERT query - protects against SQL injection attacks
+        $stmt = $conn->prepare("INSERT INTO trips (heading, tripdate, duration, summary) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $heading, $tripdate, $duration, $summary);
 
-    // set parameters and execute
-    $heading = $_POST["heading"];
-    $tripdate = $_POST["tripdate"];
-    $duration = $_POST["duration"];
-    $summary = $_POST["summary"];
+        // set parameters and execute
+        $heading = $_POST["heading"];
+        $tripdate = $_POST["tripdate"];
+        $duration = $_POST["duration"];
+        $summary = $_POST["summary"];
 
-    $stmt->execute();
+        $stmt->execute();
 
-    $stmt->close();
-    $conn->close();
+        $stmt->close(); // Close the statement
 
-    header("Location: admin-confirm.php");
-    exit;
-    
-}
+        // Redirect to admin-confirm.php
+        header("Location.href: admin-confirm.php");
+        exit;
+    }
 
-require "footer.php";
+    require "footer.php";
 ?>
